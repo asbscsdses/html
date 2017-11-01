@@ -1,0 +1,36 @@
+<html>
+<head>
+	<script src="jquery-1.7.2.min.js"></script>	
+</head>
+<body>
+	<a href="#" id="select_logo">Select Logo</a> 
+	<input type="file" id="logo" accept=".bin" value="111.bin"/>
+	<input type="text" id="state" />
+</body>	
+<script type="text/javascript">
+	function fileSelectChange(){
+		alert('Selected file: ' + this.value);
+	}
+	//$("#logo").css('opacity','0');
+	
+	$("#select_logo").click(function(e){
+	   e.preventDefault();
+	   $("#logo").trigger('click');
+	   //alert("abc");
+	});
+	/*document.getElementById('logo').onchange = function () {
+	  alert('Selected file: ' + this.value);
+	};*/
+
+	var godzilla = $('#logo');
+	
+	godzilla.on('change', function(){
+
+		if (godzilla.val() != '') {
+			$('#state').val('You have chosen a Mech!');    
+		} else {
+			$('#state').val('Choose your Mech!');
+		}
+	});
+	</script>
+</html>
